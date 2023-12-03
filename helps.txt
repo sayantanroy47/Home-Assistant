@@ -1,0 +1,14 @@
+Helpers
+
+{{ states|selectattr('entity_id','in',state_attr('switch.smart_sockets','entity_id'))|selectattr('state','eq','on')|list|count }}
+
+
+{{ states.light
+              | selectattr ( 'attributes.entity_id' , 'defined' )
+              | selectattr ( 'state' , '==' , 'on' ) 
+              | expand 
+              | map ( attribute = 'entity_id' ) 
+              | list | count }}
+			  
+			  
+{{ state_attr('weather.forecast_home', 'temperature') }}

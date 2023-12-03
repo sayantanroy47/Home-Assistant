@@ -1,0 +1,149 @@
+alias: Turn_OFF_EVERYTHING
+sequence:
+  - service: light.turn_off
+    data: {}
+    target:
+      area_id:
+        - dining
+        - entrance
+        - evedal
+        - hall
+        - kitchen
+        - living_room
+        - bedroom
+  - service: switch.turn_off
+    data: {}
+    target:
+      device_id:
+        - bbf9a8dcc9a35b88aafa5c3159ba6a1c
+        - 5d58ffd6b84f34ec9ea540a753f58956
+icon: mdi:power
+mode: single
+
+alias: Living Room Light ON
+sequence:
+  - if:
+      - condition: or
+        conditions:
+          - condition: device
+            type: is_off
+            device_id: 541125e19078d14795fa58297adf70e4
+            entity_id: 14ad4721477360d90b7b50bbcdbb6f1d
+            domain: light
+          - condition: device
+            type: is_off
+            device_id: 1bc896fe678f4cf053ac5abccf3f26fc
+            entity_id: 8a832fcc48135dba13bb2a3178c3b8b9
+            domain: light
+          - condition: device
+            type: is_off
+            device_id: b6ead873a2a7b9f7f18a3f8b87d98a60
+            entity_id: 8b568e52248639cba6b4b05bfa4a4d59
+            domain: light
+    then:
+      - service: light.turn_on
+        data:
+          kelvin: 2700
+        target:
+          area_id: living_room
+mode: single
+icon: mdi:ceiling-light-multiple
+
+
+alias: Living Room Lights OFF
+sequence:
+  - if:
+      - condition: or
+        conditions:
+          - condition: device
+            type: is_on
+            device_id: 541125e19078d14795fa58297adf70e4
+            entity_id: 14ad4721477360d90b7b50bbcdbb6f1d
+            domain: light
+          - condition: device
+            type: is_on
+            device_id: 1bc896fe678f4cf053ac5abccf3f26fc
+            entity_id: 8a832fcc48135dba13bb2a3178c3b8b9
+            domain: light
+          - condition: device
+            type: is_on
+            device_id: b6ead873a2a7b9f7f18a3f8b87d98a60
+            entity_id: 8b568e52248639cba6b4b05bfa4a4d59
+            domain: light
+    then:
+      - service: light.turn_off
+        data: {}
+        target:
+          area_id: living_room
+mode: single
+
+
+alias: "Kitchen Light ON "
+sequence:
+  - if:
+      - condition: or
+        conditions:
+          - condition: device
+            type: is_off
+            device_id: 47cf842f365d0e954d150d92b2344349
+            entity_id: 6b273e24d7215ed80f6d803a311f8f93
+            domain: light
+          - condition: device
+            type: is_off
+            device_id: a3867baf530126ba537e40b752226239
+            entity_id: 255893394f6b7c07efefed3b279d138f
+            domain: light
+          - condition: device
+            type: is_off
+            device_id: e68247716b9dd97701e1326e72a7a440
+            entity_id: 319c44c6dfb892627c2eef7e276f01e2
+            domain: light
+          - condition: device
+            type: is_off
+            device_id: 79089a988dc9dc2ef77d623c024d9f62
+            entity_id: 7ceb31b1c6cefa5a3b6faa0c84122d18
+            domain: light
+    then:
+      - service: light.turn_on
+        data:
+          kelvin: 6500
+          brightness_pct: 53
+        target:
+          area_id: kitchen
+mode: single
+icon: mdi:ceiling-light-multiple
+
+alias: "Kitchen Light OFF "
+sequence:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.kitchen_lights
+mode: single
+icon: mdi:ceiling-light-multiple
+
+alias: Bedroom Lights ON
+sequence:
+  - service: light.turn_on
+    data:
+      kelvin: 2700
+    target:
+      device_id:
+        - ef4e1403871a8d553df4f86acafae156
+        - 35292a411c82cee341918c31288d0d5d
+        - 706d2d3a6605363467ce1a4f2d2fa7f7
+mode: single
+icon: mdi:ceiling-light-multiple
+
+
+alias: Bedroom Lights OFF
+sequence:
+  - service: light.turn_off
+    data: {}
+    target:
+      device_id:
+        - ef4e1403871a8d553df4f86acafae156
+        - 35292a411c82cee341918c31288d0d5d
+        - 706d2d3a6605363467ce1a4f2d2fa7f7
+mode: single
+icon: mdi:ceiling-light-multiple

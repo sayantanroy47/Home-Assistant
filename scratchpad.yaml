@@ -1,0 +1,639 @@
+views:
+  - title: Home
+    cards:
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: custom:mushroom-title-card
+            title: ''
+          - type: custom:mushroom-person-card
+            entity: person.sayantan_roy
+            use_entity_picture: true
+            layout: vertical
+            card_mod:
+              style: |
+                ha-card { 
+                background-color: rgba(0,0,0,0);
+                border: 0px
+                }
+          - type: custom:mushroom-person-card
+            entity: person.ayantika
+            use_entity_picture: true
+            layout: vertical
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: rgba(0,0,0,0);
+                  border: 0px
+                }
+          - type: custom:mushroom-title-card
+            title: ''
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+            --shape-color: none !important;
+            --shape-color-disabled: none !important;}
+            ha-card { 
+            background-color:#18141f;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 0px;
+            --icon-symbol-size: 35px;
+            }
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Rooms
+            icon: mdi:home-assistant
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:stack-in-card
+                mode: vertical
+                cards:
+                  - type: custom:stack-in-card
+                    mode: horizontal
+                    cards:
+                      - type: custom:mushroom-entity-card
+                        entity: sensor.th_living_temperature
+                        name: Living Room
+                        icon_type: none
+                        tap_action:
+                          action: navigate
+                          navigation_path: living_room
+                        card_mod:
+                          style: |
+                            ha-card { 
+                              background-color:#18141f;
+                              border: none;
+                              box-shadow: none;
+                              border-radius: 0px;
+                              border-style: hidden;} 
+                      - type: custom:stack-in-card
+                        mode: vertical
+                        cards:
+                          - type: custom:mushroom-chips-card
+                            card_mod:
+                              style: |
+                                ha-card { 
+                                 --chip-background: none!important;
+                                 --chip-border-width: 0px!important;
+                                 --chip-border-style: hidden!important;
+                                  }
+                            alignment: end ;}
+                            chips:
+                              - type: light
+                                entity: light.living_room
+                                use_light_color: true
+                              - type: entity
+                                entity: sensor.th_living_humidity
+                        card_mod:
+                          style: |
+                            ha-card { 
+                              background-color:#18141f;
+                              box-shadow: none;                      
+                              border-radius: 0px;
+                              border-style: hidden;}
+                    card_mod:
+                      style: |
+                        ha-card { 
+                          background-color:#18141f;
+                          box-shadow: none;
+                          border-radius: 0px;
+                          border-style: hidden;} 
+                  - type: custom:mini-graph-card
+                    hours_to_show: 72
+                    graph: line
+                    entities:
+                      - sensor.th_living_temperature
+                    show:
+                      state: false
+                      name: false
+                      icon: false
+                    color_thresholds:
+                      - value: 10
+                        color: '#800080'
+                      - value: 16
+                        color: '#0000FF'
+                      - value: 17
+                        color: '#008000'
+                      - value: 18
+                        color: '#FFFF00'
+                      - value: 19
+                        color: '#FF6600'
+                      - value: 20
+                        color: '#FF0000'
+                      - value: 21
+                        color: '#FF69B4'
+                    points_per_hour: 0.5
+                    card_mod:
+                      style: |
+                        ha-card { 
+                          background-color:#18141f;
+                          box-shadow: none;
+                          border-radius: 0px;
+                          border-style: hidden;}
+                card_mod:
+                  style: |
+                    ha-card { 
+                      background-color:#18141f;
+                      box-shadow: none;
+                      border-radius: 5px;
+                      border-style: hidden;}
+              - type: custom:stack-in-card
+                mode: vertical
+                cards:
+                  - type: custom:stack-in-card
+                    mode: horizontal
+                    cards:
+                      - type: custom:mushroom-entity-card
+                        entity: sensor.th_office_temperature
+                        name: Office
+                        icon_type: none
+                        tap_action:
+                          action: navigate
+                          navigation_path: living_room
+                        card_mod:
+                          style: |
+                            ha-card { 
+                              background-color:#18141f;
+                              box-shadow: none;
+                              border-style: hidden;} 
+                      - type: custom:stack-in-card
+                        mode: vertical
+                        cards:
+                          - type: custom:mushroom-chips-card
+                            chips:
+                              - type: light
+                                entity: light.standing_lamp
+                                use_light_color: true
+                              - type: entity
+                                entity: sensor.th_office_humidity
+                            alignment: end }
+                            card_mod:
+                              style: |
+                                ha-card { 
+                                 --chip-background: #18141f!important;
+                                 --chip-box-shadow: none!important;
+                                 --chip-border-width: 0px!important;
+                                 --chip-border-style: hidden!important;
+                                  }
+                        card_mod:
+                          style: |
+                            ha-card { 
+                              background-color:#18141f;
+                              box-shadow: none;
+                              border-style: hidden;}
+                    card_mod:
+                      style: |
+                        ha-card { 
+                          background-color:#18141f;
+                          box-shadow: none;
+                          border-radius: 0px;
+                          border-style: hidden;} 
+                  - type: custom:mini-graph-card
+                    hours_to_show: 72
+                    graph: line
+                    entities:
+                      - sensor.th_office_temperature
+                    show:
+                      state: false
+                      name: false
+                      icon: false
+                    color_thresholds:
+                      - value: 10
+                        color: '#800080'
+                      - value: 16
+                        color: '#0000FF'
+                      - value: 17
+                        color: '#008000'
+                      - value: 18
+                        color: '#FFFF00'
+                      - value: 19
+                        color: '#FF6600'
+                      - value: 20
+                        color: '#FF0000'
+                      - value: 21
+                        color: '#FF69B4'
+                    points_per_hour: 0.5
+                    card_mod:
+                      style: |
+                        ha-card { 
+                          background-color:#18141f;
+                          box-shadow: none;
+                          border-radius: 0px;
+                          border-style: hidden;}
+                card_mod:
+                  style: |
+                    ha-card { 
+                      background-color:#18141f;
+                      box-shadow: none;
+                      border-radius: 5px;
+                      border-style: hidden;}  
+            card_mod: null
+            style: |
+              ha-card { 
+                background-color:#18141f;
+                box-shadow: none;
+                border: none;
+                border-radius: 5px;
+                border-style: hidden;}
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:stack-in-card
+                mode: vertical
+                cards:
+                  - type: custom:stack-in-card
+                    mode: horizontal
+                    cards:
+                      - type: custom:mushroom-entity-card
+                        entity: sensor.th_bedroom_temperature
+                        name: Bedroom
+                        icon_type: none
+                        tap_action:
+                          action: navigate
+                          navigation_path: bedroom
+                        card_mod:
+                          style: |
+                            ha-card { 
+                              background-color:#18141f;
+                              box-shadow: none;
+                              border-style: hidden;} 
+                      - type: custom:stack-in-card
+                        mode: vertical
+                        cards:
+                          - type: custom:mushroom-chips-card
+                            chips:
+                              - type: light
+                                entity: light.bedroom
+                                use_light_color: true
+                              - type: entity
+                                entity: sensor.th_bedroom_humidity
+                            alignment: end }
+                            card_mod:
+                              style: |
+                                ha-card { 
+                                 --chip-background: #18141f!important;
+                                 --chip-box-shadow: none!important;
+                                 --chip-border-width: 0px!important;
+                                 --chip-border-style: hidden!important;
+                                  }
+                        card_mod:
+                          style: |
+                            ha-card { 
+                              background-color:#18141f;
+                              box-shadow: none;
+                              border-style: hidden;}
+                    card_mod:
+                      style: |
+                        ha-card { 
+                          background-color:#18141f;
+                          box-shadow: none;
+                          border-style: hidden;} 
+                  - type: custom:mini-graph-card
+                    hours_to_show: 72
+                    graph: line
+                    entities:
+                      - sensor.th_bedroom_temperature
+                    show:
+                      state: false
+                      name: false
+                      icon: false
+                    color_thresholds:
+                      - value: 10
+                        color: '#800080'
+                      - value: 16
+                        color: '#0000FF'
+                      - value: 17
+                        color: '#008000'
+                      - value: 18
+                        color: '#FFFF00'
+                      - value: 19
+                        color: '#FF6600'
+                      - value: 20
+                        color: '#FF0000'
+                      - value: 21
+                        color: '#FF69B4'
+                    points_per_hour: 0.5
+                    card_mod:
+                      style: |
+                        ha-card { 
+                          background-color:#18141f;
+                          box-shadow: none;
+                          border-style: hidden;}
+                card_mod:
+                  style: |
+                    ha-card { 
+                      background-color:#18141f;
+                      box-shadow: none;
+                      border-radius: 5px;
+                      border-style: hidden;}
+              - type: custom:stack-in-card
+                mode: vertical
+                cards:
+                  - type: custom:stack-in-card
+                    mode: horizontal
+                    cards:
+                      - type: custom:mushroom-entity-card
+                        entity: sensor.th_bathroom_temperature
+                        name: Bathroom
+                        icon_type: none
+                        tap_action:
+                          action: navigate
+                          navigation_path: bathroom
+                        card_mod:
+                          style: |
+                            ha-card { 
+                              background-color:#18141f;
+                              box-shadow: none;
+                              border-radius: 0px;
+                              border-style: hidden;} 
+                      - type: custom:stack-in-card
+                        mode: vertical
+                        cards:
+                          - type: custom:mushroom-chips-card
+                            chips:
+                              - type: light
+                                entity: light.bathroom
+                                use_light_color: true
+                              - type: entity
+                                entity: sensor.th_bathroom_humidity
+                            alignment: end }
+                            card_mod:
+                              style: |
+                                ha-card { 
+                                 --chip-background: #18141f!important;
+                                 --chip-box-shadow: none!important;
+                                 --chip-border-width: 0px!important;
+                                 --chip-border-style: hidden!important;
+                                  }
+                        card_mod:
+                          style: |
+                            ha-card { 
+                              background-color:#18141f;
+                              box-shadow: none;
+                              border-radius: 0px;
+                              border-style: hidden;}
+                    card_mod:
+                      style: |
+                        ha-card { 
+                          background-color:#18141f;
+                          box-shadow: none;
+                          border-radius: 0px;
+                          border-style: hidden;} 
+                  - type: custom:mini-graph-card
+                    hours_to_show: 72
+                    graph: line
+                    entities:
+                      - sensor.th_bathroom_temperature
+                    show:
+                      state: false
+                      name: false
+                      icon: false
+                    color_thresholds:
+                      - value: 10
+                        color: '#800080'
+                      - value: 16
+                        color: '#0000FF'
+                      - value: 17
+                        color: '#008000'
+                      - value: 18
+                        color: '#FFFF00'
+                      - value: 19
+                        color: '#FF6600'
+                      - value: 20
+                        color: '#FF0000'
+                      - value: 21
+                        color: '#FF69B4'
+                    points_per_hour: 0.5
+                    card_mod:
+                      style: |
+                        ha-card { 
+                          background-color:#18141f;
+                          box-shadow: none;
+                          border: none;
+                          border-radius: 0px;
+                          border-style: hidden;}
+                card_mod:
+                  style: |
+                    ha-card { 
+                      background-color:#18141f;
+                      box-shadow: none;
+                      border-radius: 5px;
+                      border: none;
+                      box-shadow: none;
+                      border-style: hidden;} 
+            card_mod:
+              style: |
+                ha-card { 
+                  background-color:#18141f;
+                  box-shadow: none;
+                  border: none;
+                  border-radius: 5px;
+                  border-style: hidden;}
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:stack-in-card
+                mode: vertical
+                cards:
+                  - type: custom:stack-in-card
+                    mode: horizontal
+                    cards:
+                      - type: custom:mushroom-entity-card
+                        entity: sensor.th_guest_bedroom_temperature
+                        name: Guest Room
+                        icon_type: none
+                        tap_action:
+                          action: navigate
+                          navigation_path: guest room
+                        card_mod:
+                          style: |
+                            ha-card { 
+                              background-color:#18141f;
+                              box-shadow: none;
+                              border-radius: 0px;
+                              border-style: hidden;} 
+                      - type: custom:stack-in-card
+                        mode: vertical
+                        cards:
+                          - type: custom:mushroom-chips-card
+                            chips:
+                              - type: light
+                                entity: light.guest_room
+                                use_light_color: true
+                              - type: entity
+                                entity: sensor.th_guest_bedroom_humidity
+                            alignment: end }
+                            card_mod:
+                              style: |
+                                ha-card { 
+                                 --chip-background: #18141f!important;
+                                 --chip-box-shadow: none!important;
+                                 --chip-border-width: 0px!important;
+                                 --chip-border-style: hidden!important;
+                                  }
+                        card_mod:
+                          style: |
+                            ha-card { 
+                              background-color:#18141f;
+                              box-shadow: none;
+                              border-radius: 0px;
+                              border-style: hidden;}
+                    card_mod:
+                      style: |
+                        ha-card { 
+                          background-color:#18141f;
+                          box-shadow: none;
+                          border-radius: 0px;
+                          border-style: hidden;} 
+                  - type: custom:mini-graph-card
+                    hours_to_show: 72
+                    graph: line
+                    entities:
+                      - sensor.th_guest_bedroom_temperature
+                    show:
+                      state: false
+                      name: false
+                      icon: false
+                    color_thresholds:
+                      - value: 10
+                        color: '#800080'
+                      - value: 16
+                        color: '#0000FF'
+                      - value: 17
+                        color: '#008000'
+                      - value: 18
+                        color: '#FFFF00'
+                      - value: 19
+                        color: '#FF6600'
+                      - value: 20
+                        color: '#FF0000'
+                      - value: 21
+                        color: '#FF69B4'
+                    points_per_hour: 0.5
+                    card_mod:
+                      style: |
+                        ha-card { 
+                          background-color:#18141f;
+                          box-shadow: none;
+                          border-radius: 0px;
+                          border-style: hidden;}
+                card_mod:
+                  style: |
+                    ha-card { 
+                      background-color:#18141f;
+                      box-shadow: none;
+                      border-radius: 5px;
+                      border-style: hidden;}
+              - type: custom:stack-in-card
+                mode: vertical
+                cards:
+                  - type: custom:stack-in-card
+                    mode: horizontal
+                    cards:
+                      - type: custom:mushroom-entity-card
+                        entity: sensor.th_guest_bathroom_temperature
+                        name: Guest WC
+                        icon_type: none
+                        tap_action:
+                          action: navigate
+                          navigation_path: guest_bathroom
+                        card_mod:
+                          style: |
+                            ha-card { 
+                              background-color:#18141f;
+                              box-shadow: none;
+                              border-radius: 0px;
+                              border-style: hidden;} 
+                      - type: custom:stack-in-card
+                        mode: vertical
+                        cards:
+                          - type: custom:mushroom-chips-card
+                            chips:
+                              - type: light
+                                entity: light.guest_bedroom
+                                use_light_color: true
+                              - type: entity
+                                entity: sensor.th_guest_bathroom_humidity
+                            alignment: end }
+                            card_mod:
+                              style: |
+                                ha-card { 
+                                 --chip-background: #18141f!important;
+                                 --chip-box-shadow: none!important;
+                                 --chip-border-width: 0px!important;
+                                 --chip-border-style: hidden!important;
+                                  }
+                        card_mod:
+                          style: |
+                            ha-card { 
+                              background-color:#18141f;
+                              box-shadow: none;
+                              border-radius: 0px;
+                              border-style: hidden;}
+                    card_mod:
+                      style: |
+                        ha-card { 
+                          background-color:#18141f;
+                          box-shadow: none;
+                          border-radius: 0px;
+                          border-style: hidden;} 
+                  - type: custom:mini-graph-card
+                    hours_to_show: 72
+                    graph: line
+                    entities:
+                      - sensor.th_guest_bathroom_temperature
+                    show:
+                      state: false
+                      name: false
+                      icon: false
+                    color_thresholds:
+                      - value: 10
+                        color: '#800080'
+                      - value: 16
+                        color: '#0000FF'
+                      - value: 17
+                        color: '#008000'
+                      - value: 18
+                        color: '#FFFF00'
+                      - value: 19
+                        color: '#FF6600'
+                      - value: 20
+                        color: '#FF0000'
+                      - value: 21
+                        color: '#FF69B4'
+                    points_per_hour: 0.5
+                    card_mod:
+                      style: |
+                        ha-card { 
+                          background-color:#18141f;
+                          box-shadow: none;
+                          border-radius: 0px;
+                          border-style: hidden;}
+                card_mod:
+                  style: |
+                    ha-card { 
+                      background-color:#18141f;
+                      box-shadow: none;
+                      border-radius: 5px;
+                      border-style: hidden;} 
+            card_mod:
+              style: |
+                ha-card { 
+                  background-color:#18141f;
+                  box-shadow: none;
+                  border: none;
+                  border-radius: 5px;
+                  border-style: hidden;}
+        card_mod:
+          style: |
+            ha-card { 
+              background-color:#18141f;
+              box-shadow: none;
+              border-radius: 5px;
+              border-style: hidden;}                 
